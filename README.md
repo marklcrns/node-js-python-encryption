@@ -15,10 +15,10 @@
 
 ### Nodejs
 
-- `node cypher_b64.js`
-- `node cypher_hex.js`
+- `./cypher_b64.js` - base64
+- `./cypher_hex.js` - hex
 
 ### Python
 
-- `./cypher_b64.py`
-- `./cypher_hex.py`
+- `./cypher_b64.py` - base64
+- `./cypher_hex.py` - hex

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const crypto = require('crypto');
 const URLSafeBase64 = require('urlsafe-base64');
 

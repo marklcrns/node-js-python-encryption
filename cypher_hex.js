@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const crypto = require('crypto');
 
 const input = "80:c9:55:64:73:f0";
