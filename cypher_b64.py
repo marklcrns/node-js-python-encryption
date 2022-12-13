@@ -11,9 +11,9 @@ CRYPTO_IV= 'rBEssDfxofOveRxR'
 BLOCK_SIZE = 16
 
 
-def encrypt(data):
-    key = bytes(CRYPTO_KEY, 'utf-8')
-    iv = bytes(CRYPTO_IV, 'utf-8')
+def Encrypt(data, key, iv):
+    key = bytes(key, 'utf-8')
+    iv = bytes(iv, 'utf-8')
 
     aes = AES.new(key, AES.MODE_CBC, iv)
     encrypted = aes.encrypt(pad(data.encode(), BLOCK_SIZE))
@@ -22,9 +22,9 @@ def encrypt(data):
     return base64.urlsafe_b64encode(encrypted).decode("utf-8").rstrip("=")
 
 
-def decrypt(edata):
-    key = bytes(CRYPTO_KEY, 'utf-8')
-    iv = bytes(CRYPTO_IV, 'utf-8')
+def Decrypt(edata, key, iv):
+    key = bytes(key, 'utf-8')
+    iv = bytes(iv, 'utf-8')
 
     # Add "=" padding back before decoding
     edata = base64.urlsafe_b64decode(edata + '=' * (-len(edata) % 4))
@@ -33,8 +33,8 @@ def decrypt(edata):
 
 
 def main():
-    output = encrypt(input)
-    plaintext = decrypt(output)
+    output = Encrypt(input, CRYPTO_KEY, CRYPTO_IV)
+    plaintext = Decrypt(output, CRYPTO_KEY, CRYPTO_IV)
 
     print(output)
     print(plaintext)
